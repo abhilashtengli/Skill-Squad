@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(194 176 227);
+        }
+
+        .table {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .tbl {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            width: 300px;
+            border: 2px solid #ff77a4;
+            background-color: rgb(211, 211, 237);
+            margin: 10px;
+            border-radius: 10px;
+            margin-left: 30px;
+            font-size: large;
+        }
+
+        #form {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid black; */
+            border-radius: 5px;
+            position: absolute;
+            width: 250px;
+            height: 150px;
+            bottom: 180px;
+            left: -350px;
+            margin: 5px;
+            background-color: rgb(143, 204, 245);
+        }
+
+        .butn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        input {
+            margin: 6px;
+        }
+
+        .in {
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            padding-left: 3px;
+        }
+
+        .sub {
+            padding: 2px 5px;
+            border-radius: 5px;
+            background-color: rgb(250, 250, 250);
+        }
+
+        .formgroup {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formgroup button {
+            padding: 1px 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        .work {
+            width: 100%;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: x-large;
+            background-color: #ff77a4;
+            margin-top: -8px;
+            margin-left: -8px;
+            border-bottom: 8px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="work">
+        <h1>Find your worker</h1>
+    </nav>
+    <div class="table" th:each="labours: ${l}">
+
+        <table class="tbl">
+            <tr>
+                <td>Worker Id:</td>
+                <td th:text="${labours.Id}" /><br>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td th:text="${labours.name}" /><br>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td th:text="${labours.email}" /><br>
+            </tr>
+            <tr>
+                <td>Skill:</td>
+                <td th:text="${labours.skill}" /><br>
+            </tr>
+        </table>
+        <div class="formgroup">
+            <button onclick="myfunc()">View</button>
+        </div>
+    </div>
+    <div id="form">
+        <form th:action="@{/view-labour-details}" th:object="${user}" method="post">
+            <input class="in" name="Id" placeholder="Enter worker Id" required><br>
+            <div class="butn">
+                <input class="sub" type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function myfunc() {
+        const s = document.getElementById("form")
+        if (s.style.left == "-350px") {
+            s.style.left = "300px";
+        } else {
+            s.style.left = "-350px"
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-image: url(https://www.careeraddict.com/uploads/article/59398/illustration-children-silhouettes-working.png); */
+            background-color: #cdffe5;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-position:center center ; */
+            /* background-attachment: fixed; */
+            /* width: 100%;
+            height: 100%; */
+        }
+
+        .left {
+            display: flex;
+            justify-content: left;
+            gap: 10px;
+            margin: 10px;
+        }
+
+        .img {
+            margin-top: 16px;
+        }
+
+        img {
+            mix-blend-mode: multiply;
+        }
+
+        h2 {
+            margin-top: 25px;
+            margin-right: 15px;
+            font-size: 30px;
+        }
+
+        .right {
+            display: flex;
+            float: right;
+            margin: 35px;
+            margin-top: -75px;
+            gap: 20px;
+            padding: 5px;
+
+        }
+
+        section {
+            background-color: #ffffff;
+            margin-top: -11px;
+            margin-right: -10px;
+            margin-left: -10px;
+
+        }
+
+        button {
+            padding: 5px;
+        }
+
+        select {
+            font-size: larger;
+            border-radius: 8px;
+            background-color: transparent;
+            text-align: center;
+            border: 0px;
+            margin: 0px;
+        }
+
+
+
+
+        table,
+        th {
+            border: 2px solid black;
+            padding: 50px 50px;
+        }
+
+        .details {
+            color: black;
+            display: grid;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .tbl {
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: aliceblue;
+            margin-top: 100px;
+
+        }
+
+        .as {
+            text-decoration: none;
+            color: black;
+            font-size: larger;
+        }
+
+        td {
+            border-bottom: 1px solid black;
+            width: 150px;
+        }
+
+        #btn {
+            border-radius: 5px;
+            text-align: center;
+            border: 0px;
+            font-size: medium;
+            background-color: transparent;
+            margin-top: -3px;
+        }
+
+        .form {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+
+        .inp {
+            padding: 7px 80px;
+            padding-left: 3px;
+            font-size: large;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+
+        }
+
+        label {
+            padding-left: 10px;
+            font-size: 25px;
+        }
+
+        .search {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .search input {
+            border-radius: 4px;
+            padding: 3px 15px;
+            font-size: larger;
+            border: 1px solid black;
+
+        }
+
+        .fm {
+            border: 3px solid black;
+            /* height: 250px; */
+            padding: 30px 20px;
+            border-radius: 8px;
+            /* background-color: #ff7e7e; */
+            background-color: ghostwhite;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="left">
+            <div class="img">
+                <img width="50px" height="50px"
+                    src="https://png.pngtree.com/png-vector/20191119/ourmid/pngtree-beautiful-profile-glyph-vector-icon-png-image_2002807.jpg">
+            </div>
+            <h2>[[${UserPage.getName()}]]</h2>
+        </div>
+        <div class="right">
+            <!-- <select>
+                <option>Profile</option>
+                <option>Edit profile</option>
+                <option><a href="/change-password">Change Password</a></option>
+            </select> -->
+            <a class="as" href="/user-editDetails">Edit profile</a>
+            <a class="as" href="/user-changePassword">Change Password</a>
+            <a class="as" href="/get-user-login">Logout</a>
+            <form th:action="@{/getDetails}" th:object="${user}" method="post">
+                <button id="btn">Profile</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="form">
+        <form class="fm" th:action="@{/getLabDetails}" th:object="${user}" method="post">
+            <h2>Search workers for you..</h2>
+            <input class="inp" placeholder="Enter the location" name="location" type="text" required><br>
+            <br>
+            <input class="inp" placeholder="Enter the Skill" name="skill" type="text"><br required>
+            <div class="search">
+                <input value="Search" type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(216, 183, 247);
+            width: 100%;
+        }
+
+        .details {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            width: 100%;
+        }
+
+        .tbl {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 600px;
+            /* border: 2px solid black; */
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        td {
+            border-bottom: 2px solid black;
+            /* border-right: 1px solid black; */
+            /* border-left: 1px solid black;
+            border-top: 2px solid black; */
+            padding: 12px 52px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 400;
+        }
+
+        tr {
+            margin: 10px;
+        }
+
+        .work {
+            width: 100%;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: x-large;
+            background-color: #ff77a4;
+            margin-top: -8px;
+            margin-left: -8px;
+            border-bottom: 8px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="work">
+        <h2>worker Details</h2>
+    </nav>
+    <div class="details">
+        <table class="tbl" style="width:100%">
+            <tr>
+                <td>Name :</td>
+                <td>[[${labDetails.getName()}]]</td>
+            </tr>
+            <tr>
+                <td>Email :</td>
+                <td>[[${labDetails.getEmail()}]]</td>
+            </tr>
+            <tr>
+                <td>Location :</td>
+                <td>[[${labDetails.getLocation()}]]</td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>[[${labDetails.getGender()}]]</td>
+            </tr>
+            <tr>
+                <td>Contact :</td>
+                <td>[[${labDetails.getPhNum()}]]</td>
+            </tr>
+        </table>
+    </div>
+</body>
